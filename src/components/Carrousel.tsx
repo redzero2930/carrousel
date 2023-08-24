@@ -4,34 +4,34 @@ import playstation from '../assets/img/playstation.jpg';
 import xbox from '../assets/img/xbox.png';
 import './Carrousel.css'
 
-export default function Carrousel(props: any) {
+export default function Carrousel() {
     const images = [nintendo, playstation, xbox];
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedImage, setSelectedImage] = useState(images[0]);
 
-    const selectNewImage = (images: string[], next = true) => {
-        const condition = next ? selectedIndex < images.length - 1 : selectedIndex > 0;
-        const nextIndex = next ? (condition ? selectedIndex + 1 : 0) : condition ? selectedIndex - 1 : images.length - 1;
-        setSelectedImage(images[nextIndex]);
-        setSelectedIndex(nextIndex);
-    };
-
     const previous = () => {
-        selectNewImage( images, false);
+        const condition = selectedIndex > 0;
+        const PrevousIndex = condition ? selectedIndex - 1 : images.length - 1
+        setSelectedImage(images[PrevousIndex]);
+        setSelectedIndex(PrevousIndex);
     };
 
     const next = () => {
-        selectNewImage( images, true);
+       const condition = selectedIndex < images.length - 1;
+       const nextIndex = condition ? selectedIndex + 1 : 0;
+       setSelectedImage(images[nextIndex]);
+       setSelectedIndex(nextIndex);
     };
 
     return (
         <div className='carrousel'>
-            <img 
+            <button className='moveButton' onClick={previous}>{"<"}</button>
+            <img
+            className='carrouselImg' 
             src={selectedImage} 
             alt="console"
             />
-            <button onClick={previous}>{"<"}</button>
-            <button onClick={next}>{">"}</button>
+            <button className='moveButton' onClick={next}>{">"}</button>
         </div>
     );
 }
