@@ -1,10 +1,11 @@
 import './App.css';
-import Carrousel from './components/Carrousel';
+import ImageSlider from './components/imageSlider/imageSlider';
+
 
 function App() {
   return (
     <div className="App">
-        <Carrousel/>
+       <ImageSlider/>
     </div>
   );
 }

@@ -1,0 +1,34 @@
+.imageSlider {
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    justify-content: left; 
+}
+
+.moveButton {
+    margin-top: 115px;
+    margin-bottom: 115px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border: none;
+    transition: background-color 0.3s, color 0.3s;
+    border: 1px solid black;
+}
+
+.moveButton:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+.carrouselImg {
+    height: 300px;
+    width: 500px;
+    transition: transform 0.3s;
+}
+
+.carrouselImg:hover {
+    transform: scale(1.1);
+}
+
+.moveButton img {
+    height: 30px; 
+}
